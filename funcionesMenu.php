@@ -64,6 +64,9 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
 }
 
 
+/**************************************/
+/****** FIN FUNCIONES COMPLETARIAS******/
+/**************************************/
 
 
 
@@ -123,3 +126,65 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
   }
 
 
+/**Funcion correspondiente a la opcion numero 4 del menu principal.
+ * Consulta en la base de datos de las partidas existentes, la primera partida ganada por un jugador.
+ * En caso de existir esos datos, los muestra por pantalla de lo contrario mostrara un mensaje por pantalla.
+ * @param ARRAY $coleccionPartidas
+ */
+
+ function menuOpcion4($coleccionPartidas){
+    //STRING $jugador
+    //INT $indice
+
+    $jugador= solicitarJugador();
+    $indice= primerPartidaGanada($coleecionPartidas,$jugador);
+    if($indice != -1){
+        mostrarPartida($indice,$coleccionPartidas);
+    }else{
+        escribirRojo("El/la jugador/a $jugador no ha ganado ninguna partida ");
+        echo "\n";
+    }
+ }
+
+
+
+ /**Funcion que correspondiente a la opcion 5 del menu principal
+  * Muestra las estadisticas de un jugador 
+  * Partidas jugadas, ganadas y porcentaje de victorias.
+  *@param ARRAY $coleccionPartidas
+  */
+
+  function menuOpcion5($coleccionPartidas){
+    //STRING $jugador
+    //ARRAY $resumenJugador
+    //FLOAT $porcentajeVictorias
+
+    $jugador= solicitarJugador();
+    $resumenJugador= estadisticasJugador($coleccionPartidas,$jugador);
+    $porcentajeVictorias= 0;
+
+    if($resumenJugador["partidas"] == 0){
+        echo"El jugador". $resumenJugador["jugador"]. " no ha registrado ninguna  partida \n";
+    }else{
+        if($resumenJugador["victorias"] != 0){
+            $porcentajeVictorias= ($resumenJugador["victorias"]*100)/ $resumenJugador["partidas"];
+        }else{
+            $porcentajeVictorias= 0;
+        }
+    }
+    escribirGris("***********************************************");
+    echo "\n";
+    echo"Jugador: ". $resumenJugador["jugador"]. "\n";
+    echo"Partidas:". $resumenJugador["partidas"]. "\n";
+    echo"Puntaje total:". $resumenJugador["puntaje"]. "\n";
+    echo"Victorias:". $resumenJugador["victorias"]. "\n";
+    echo"Porcentaje de victorias:". number_format($porcentajeVictorias,2). "%  \n"; 
+    echo" ADIVINADAS: \n";
+    foreach($resumenJugador as $clave => $valor){
+        if(strpos($clave,"intento")== 0){
+            echo $clave. ": ". $valor. "\n";
+        }
+        }
+        escribirGris("***********************************************");
+        echo "\n";
+  }
