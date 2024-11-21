@@ -1,4 +1,7 @@
 <?php
+/**************************************/
+/****** FUNCIONES COMPLEMENTARIAS******/
+/**************************************/
 
 /**
  * Funcion que segun la opcion que se le pasa por parametro obtiene una palabra de un arreglo indexado de palabras.
