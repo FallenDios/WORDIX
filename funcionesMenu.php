@@ -36,7 +36,8 @@
         $palabra= $palabras[($indicePalabra-1)];
     }
     elseif($opcion==2){
-        $palabra= $palabras[rand(0,count($palabras)-1)];
+        $palabra= $palabras[array_rand($palabras)];  //Mas optimizada pero tambien se puede utilizar $palabras[rand(0,count($palabras)-1)];
+
     }
     return $palabra;
  }
@@ -94,7 +95,7 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
 
      while($palabraUtilizada){
         $palabra= obtenerPalabra($palabrasWordix, $opcionMenu);
-        $palabraUtilizada= verificarPalabra($palabrasWordix,$jugador, $palabra);
+        $palabraUtilizada= verificarPalabra($partidasWordix,$jugador, $palabra);
         if(!$palabraUtilizada){
             $nuevapartida= jugarWordix($palabra,$jugador);
         }else{
@@ -137,7 +138,7 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
     //INT $indice
 
     $jugador= solicitarJugador();
-    $indice= primerPartidaGanada($coleecionPartidas,$jugador);
+    $indice= primerPartidaGanada($coleccionPartidas,$jugador);
     if($indice != -1){
         mostrarPartida($indice,$coleccionPartidas);
     }else{
