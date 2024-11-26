@@ -281,6 +281,38 @@ function cargarColeccionPalabras()
     echo"\n";
  }
 
+ //PUNTO 7 AGREGAR PALABRA
+
+ /**
+  * Funcion que agrega una palabra a la coleccion de palabras  que el juego trae por defecto
+  * @param ARRAY $coleccionPalabras
+  * @param ARRAY $palabras
+  * @return ARRAY
+  */
+
+  function agregarPalabra($coleccionPalabras, $palabras){
+      //STRING $$palabra
+      //INT $indice
+      //BOOLEAN $palabraExiste
+
+      $indice = 0;
+      $palabraExiste = false;
+
+      while(!$palabraExiste && $indice < count($coleccionPalabras)){
+          if($coleccionPalabras[$indice] == $palabras){
+              $palabraExiste = true;
+          }
+          $indice++;  // Se incrementa para evitar un bucle infinito 
+      }
+
+      // Si la palabra no existe, se agrega 
+
+      if(!$palabraExiste){
+        $coleccionPalabras[] = $palabras;
+      }
+      return $coleccionPalabras;
+  }
+
 
  
 /** Esta función muestra por pantalla un menú para que el usuario
