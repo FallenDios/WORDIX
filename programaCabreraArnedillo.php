@@ -308,7 +308,11 @@ function cargarColeccionPalabras()
       // Si la palabra no existe, se agrega 
 
       if(!$palabraExiste){
-        $coleccionPalabras[] = $palabras;
+        array_push($coleccionPalabras, $palabras);
+        echo"Palabra agregada a la coleccion \n";
+      }
+      else{
+        echo"La palabra ya existe en la coleccion \n";
       }
       return $coleccionPalabras;
   }
