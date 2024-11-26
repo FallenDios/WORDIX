@@ -254,7 +254,22 @@ function cargarColeccionPalabras()
     return $estadisticasPartidas;
  }
 
+//PUNTO 6 MOSTRAR PARTIDA
 
+/**
+ * Funcion que dado un numero de partida(Corresponde al indice de un arreglo indexado de partida )
+ * Muestra  en pantalla los datos de una partida en particular 
+ * @param INT $nroPartida
+ * @param ARRAY $datosPartidas
+ */
+
+ function mostrarPartida($nroPartida, $datosPartidas){
+    //INT $incrNroPartida
+
+    $incrNroPartida= $nroPartida + 1;
+    escribirBlanco();
+
+ }
 
 
  

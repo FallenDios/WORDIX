@@ -65,7 +65,14 @@ function escribirVerde($texto)
 {
     echo "\e[1;37;42m $texto \e[0m";
 }
-
+/**
+ * Escribir un texto en color BLANCO
+ * @param STRING $texto
+ */
+function escribirBlanco($texto)
+{
+    echo "\033[46;37m $texto \033[0m";
+}
 /**
  * Escrbir un texto en color AMARILLO
  * @param string $texto)
@@ -91,6 +98,14 @@ function escribirGris($texto)
 function escribirNormal($texto)
 {
     echo "\e[0m $texto \e[0m";
+}
+/**
+ * Escribir un texto en color AZUL
+ * @param string $texto
+ */
+function escribirAzul($texto)
+{
+    echo "\033[34m$texto\033[0m";
 }
 
 /**
