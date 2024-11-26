@@ -279,7 +279,29 @@ function cargarColeccionPalabras()
     return $opcion;
  }
 
+//PUNTO 10 SOLICITAR JUGADOR
 
+/**
+ * Funcion que solicita al usuario el nombre de jugador y retorna el mismo en minusculas
+ * La funcion asegura el nombre conmience con  una letra del alfabeto
+ * @return STRING
+ */
+
+ function solicitarJugador(){
+    //STRING $jugador
+    do{
+        echo"Ingrese el nombre del jugador :";
+        $jugador=trim(fgets(STDIN));
+        if((!empty($jugador) &&  ctype_alpha($jugador[0]) )){
+            escribirVerde("El nombre ha sido ingresado correctamente....");
+            echo"\n";
+        }else{
+            escribirRojo("!!ERROR!!. El nombre debe comenzar con una letra");
+        }
+    }while( (empty($jugador)) || !(ctype_alpha($jugador[0])));
+
+    return strtolower($jugador);
+ }
 
 /**************************************/
 /*********** PROGRAMA PRINCIPAL *******/
