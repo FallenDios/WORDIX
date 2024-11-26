@@ -267,8 +267,18 @@ function cargarColeccionPalabras()
     //INT $incrNroPartida
 
     $incrNroPartida= $nroPartida + 1;
-    escribirBlanco();
-
+    escribirAzul("***********************************************");
+    echo"\n";
+    echo"Partida WORDIX nro". $incrNroPartida. ": palabra". $datosPartidas[$nroPartida]["palabraWordix"]. "\n";
+    echo"Jugador/a: ". $datosPartidas [$nroPartida]["jugador"]. "\n";
+    echo"Puntaje:".  $datosPartidas [$nroPartida]["puntaje"]. " puntos \n";
+    if(($datosPartidas[$nroPartida]["puntaje"]) == 0){
+        echo"Intento: No adivinó la palabra \n";
+    }else{
+        echo"Intento: Adivino la palabra en ". $datosPartidas[$nroPartida]["intentos"]. " intento(s). \n";
+    }
+    escribirAzul("***********************************************");
+    echo"\n";
  }
 
 
