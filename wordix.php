@@ -137,8 +137,8 @@ function escribirSegunEstado($texto, $estado)
     }
 }
 
-/**
- * ****COMPLETAR*****
+/** Esta función recibe com parámetro un nombre de jugador y muestra
+ * por pantalla un saludo.
  */
 function escribirMensajeBienvenida($usuario)
 {
