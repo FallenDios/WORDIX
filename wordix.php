@@ -26,8 +26,11 @@ const ESTADO_LETRA_PERTENECE = "pertenece";
 /***** DEFINICION DE FUNCIONES ********/
 /**************************************/
 
-/**
- *  ****COMPLETAR*****
+/** Esta función recibe como parámetros dos números y luego le solicita al usuario
+ * que ingrese un número entre un rango de valores. Si el número ingresado por el 
+ * usuario no es válido, la función se encarga de volver a pedirlo. La función
+ * retorna un número válido. 
+ * @return int 
  */
 function solicitarNumeroEntre($min, $max)
 {
