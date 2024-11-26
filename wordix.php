@@ -137,7 +137,7 @@ function escribirSegunEstado($texto, $estado)
     }
 }
 
-/** Esta función recibe com parámetro un nombre de jugador y muestra
+/** Esta función recibe como parámetro un nombre de jugador y muestra
  * por pantalla un saludo.
  */
 function escribirMensajeBienvenida($usuario)
@@ -150,8 +150,9 @@ function escribirMensajeBienvenida($usuario)
 }
 
 
-/**
- * ****COMPLETAR*****
+/** Esta función recibe como parámetro una cadena de caracteres y retorna
+ * verdadero si esa compuesta toda por letras y falso si no.
+ *@return boolean
  */
 function esPalabra($cadena)
 {
@@ -166,8 +167,11 @@ function esPalabra($cadena)
     return $esLetra;
 }
 
-/**
- *  ****COMPLETAR*****
+/** Esta función le solicita al usuario que ingrese una palabra de cinco letras. 
+ * Si el usuario ingresa algo que no cumpla las condiciones el programa se encarga
+ * de solicitarle que ingrese de nuevo lo solicitado. Una vez que lo haga, 
+ * el programa retorna la palabra.
+ *@return string
  */
 function leerPalabra5Letras()
 {
