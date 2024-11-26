@@ -30,7 +30,33 @@ function cargarColeccionPalabras()
 
     return ($coleccionPalabras);
 }
+//PUNTO 2
 
+/**
+ * Funcion que inicializa una estructura de datos con ejemplos de partidas y retorna la coleccion con datos aleatorios. 
+ * El numero de partidas es arbitrario.
+ * @param INT $cantidadPartidas
+ * @param ARRAY $palabras
+ * @return ARRAY
+ */
+
+ function cargarPartidas ($cantidadPartidas, $palabras) {
+     //ARRAY $estadisticasPartidas, $nuevaPartida, $jugadores
+
+     $jugadores = ["german", "florencia", "gonzalo", "cristian", "azul", "antonella", "julieta", "franco", "ivan", "carolina", "maria", "jose", "emiliano", "agustin", "mario", "fernanda", "miguel", "roberto", "ana", "gaston"];
+     $estadisticasPartidas = [];
+
+     for ($i = 0; $i < $cantidadPartidas; $i++) {
+        $nuevaPartida=[
+            "palabraWordix" => $palabras[rand(0,(count($palabras))-1)],
+            "jugador" => $jugadores[rand(0, (count($jugadores))-1)],
+            "intentos" => rand(1,6),
+            "puntaje" => rand(0,16)
+        ];
+        array_push($estadisticasPartidas, $nuevaPartida);
+    }
+    return $estadisticasPartidas;
+ }
 /** Esta función muestra por pantalla un menú para que el usuario
  * elija que quiere hacer.
  * @return int
