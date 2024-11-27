@@ -403,7 +403,9 @@ function cargarColeccionPalabras()
   }
 
 //PUNTO 10 SOLICITAR JUGADOR
-
+/** Función que solicita al usuario el nombre de un jugador y retorna el mismo en minúsculas. La función se asegura que el nombre comience con una letra del alfabeto.
+ * @return STRING 
+*/
 function solicitarJugador(){
     //STRING $jugador
     do{

@@ -231,19 +231,20 @@ function estadisticasJugador($partidas, $nombreJugador){
 */
 function solicitarJugador(){
   //STRING $jugador
-  do {
-    echo "Ingrese el nombre del jugador: ";
-    $jugador = trim(fgets(STDIN));
-    if ((!empty($jugador) && ctype_alpha($jugador[0]))) {
-      escribirVerde("El nombre ha sido ingresado correctamente... ");
-      echo " \n\n";
-    } 
-    else {
-      escribirRojo("Error. El nombre debe comenzar con una letra ");
-      echo " \n";
-    }
-  } while (empty($jugador) || !(ctype_alpha($jugador[0])));
-  
+  do{
+      echo"Ingrese el nombre del jugador :";
+      $jugador=trim(fgets(STDIN)); // Elimina los espacios en blanco al principio y al final de una cadena.
+      $jugador = preg_replace('/\s+/', ' ', $jugador); //remplaza todos los espacios en blanco con un espacio.
+
+      // Validar que el nombre no esté vacío, que comience con una letra y tenga más de un carácter útil
+      if((!empty($jugador) &&  ctype_alpha($jugador[0]) && strlen(str_replace(" ", "", $jugador)) )){
+          escribirVerde("El nombre ha sido ingresado correctamente....");
+          echo"\n";
+      }else{
+          escribirRojo("!!ERROR!!. El nombre debe comenzar con una letra");
+      }
+  }while( (empty($jugador)) || !(ctype_alpha($jugador[0])));
+
   return strtolower($jugador);
 }
 
