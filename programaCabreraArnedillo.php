@@ -317,7 +317,7 @@ function cargarColeccionPalabras()
       return $coleccionPalabras;
   }
 
-
+//PUNTO 3 MENU
  
 /** Esta función muestra por pantalla un menú para que el usuario
  * elija que quiere hacer.
@@ -351,6 +351,36 @@ function cargarColeccionPalabras()
     $opcion = solicitarNumeroEntre(1,8); //Invoco a esta función para que el usuario ingrese una opción valida entre 1 y 8.
     return $opcion;
  }
+//PUNTO 8  PRIMER PARTIDA GANADA
+
+/** Función que dada una colección de partidas y el nombre de un jugador, retorna el índice de la primer partida ganada por dicho jugador. Si el jugador no ganó ninguna partida, la función retornará -1
+ * @param ARRAY $partidas
+ * @param STRING $nombre
+ * @return INT
+*/
+function primerPartidaGanada($partidas, $nombre){
+    //INT $i, $indice
+    //BOOLEAN $encontrado
+    $i = 0;
+    $encontrado = false;
+    $indice = -1;
+    
+    while (!$encontrado && $i < count($partidas)) {
+      if ($partidas[$i]["jugador"] == $nombre && $partidas[$i]["puntaje"] != 0) {
+        $encontrado  = true;
+        $indice = $i;
+      }
+     $i++;
+    }
+    
+    return $indice;
+  }
+
+
+
+
+
+
  //PUNTO 9 ESTADISCTICA JUGADOR
 
  /**
