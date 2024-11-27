@@ -51,6 +51,7 @@ function solicitarNumeroEntre($min, $max)
     return $numero;
 }
 
+//--------------COLORES---------------
 /**
  * Escrbir un texto en color ROJO
  * @param string $texto)
@@ -139,6 +140,7 @@ function escribirSegunEstado($texto, $estado)
 
 /** Esta función recibe como parámetro un nombre de jugador y muestra
  * por pantalla un saludo.
+ * @param STRING $usuario
  */
 function escribirMensajeBienvenida($usuario)
 {
@@ -152,6 +154,7 @@ function escribirMensajeBienvenida($usuario)
 
 /** Esta función recibe como parámetro una cadena de caracteres y retorna
  * verdadero si esa compuesta toda por letras y falso si no.
+ * @param STRING $cadena
  *@return boolean
  */
 function esPalabra($cadena)
@@ -189,7 +192,7 @@ function leerPalabra5Letras()
 
 
 /**
- * Inicia una estructura de datos Teclado. La estructura es de tipo: ¿Indexado, asociativo o Multidimensional?
+ * Inicia una estructura de datos Teclado. La estructura es de tipo: asociativo,
  *@return array
  */
 function iniciarTeclado()
@@ -350,13 +353,52 @@ function esIntentoGanado($estructuraPalabraIntento)
 }
 
 /**
- * ****COMPLETAR***** documentación de la intefaz
+ * Función que calcula el puntaje de una partida de wordix. 
+ * @param INT $intento
+ * @param STRING $palabraElegida
+ * @return INT
+ * 
  */
-function obtenerPuntajeWordix()  /* ****COMPLETAR***** parámetros formales necesarios */
-{
-
-    /* ****COMPLETAR***** cuerpo de la función*/
-    return 0;
+function obtenerPuntajeWordix($intento, $palabraElegida) {   
+    //INT $puntaje
+    //ARRAY $vocales, $consMayores, $consMenores
+    $vocales = ["A", "E", "I", "O", "U"];
+    $consMenores = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M"];
+    $consMayores = ["N", "Ñ", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
+    $puntaje = 0;
+    switch ($intento) {
+        case '1':
+            $puntaje +=6;
+            break;
+        case '2':
+            $puntaje +=5;
+            break;
+        case '3':
+            $puntaje +=4;
+            break;
+        case '4':
+            $puntaje +=3;
+            break;
+        case '5':
+            $puntaje +=2;
+            break;
+        default:
+            $puntaje +=1;
+            break;
+    }
+    
+    foreach (str_split($palabraElegida) as $letra) {
+        if (in_array($letra, $vocales)) {
+            $puntaje += 1;
+        } 
+        else if (in_array($letra, $consMenores)) {
+            $puntaje += 2;
+        } 
+        else if (in_array($letra, $consMayores)) {
+            $puntaje += 3;
+        }  
+    } 
+    return $puntaje;
 }
 
 /**
@@ -391,7 +433,7 @@ function jugarWordix($palabraWordix, $nombreUsuario)
 
     if ($ganoElIntento) {
         $nroIntento--;
-        $puntaje = obtenerPuntajeWordix();
+        $puntaje = obtenerPuntajeWordix($nroIntento,$palabraWordix);
         echo "Adivinó la palabra Wordix en el intento " . $nroIntento . "!: " . $palabraIntento . " Obtuvo $puntaje puntos!";
     } else {
         $nroIntento = 0; //reset intento

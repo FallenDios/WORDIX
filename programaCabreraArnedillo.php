@@ -9,8 +9,9 @@ include_once("wordix.php");
 
 /* Apellido, Nombre. Legajo. Carrera. mail. Usuario Github */
 
+// IVAN ARNEDILLO FAI- 1153- TUDW-                           -ivanarnedillo
 
-
+// FRANCO CABRERA FAI-2682 - TUDW - francocabrera585@gmai.com- FallenDios
 
 
 /**************************************/
@@ -317,7 +318,7 @@ function cargarColeccionPalabras()
       return $coleccionPalabras;
   }
 
-
+//PUNTO 3 MENU
  
 /** Esta función muestra por pantalla un menú para que el usuario
  * elija que quiere hacer.
@@ -351,6 +352,36 @@ function cargarColeccionPalabras()
     $opcion = solicitarNumeroEntre(1,8); //Invoco a esta función para que el usuario ingrese una opción valida entre 1 y 8.
     return $opcion;
  }
+//PUNTO 8  PRIMER PARTIDA GANADA
+
+/** Función que dada una colección de partidas y el nombre de un jugador, retorna el índice de la primer partida ganada por dicho jugador. Si el jugador no ganó ninguna partida, la función retornará -1
+ * @param ARRAY $partidas
+ * @param STRING $nombre
+ * @return INT
+*/
+function primerPartidaGanada($partidas, $nombre){
+    //INT $i, $indice
+    //BOOLEAN $encontrado
+    $i = 0;
+    $encontrado = false;
+    $indice = -1;
+    
+    while (!$encontrado && $i < count($partidas)) {
+      if ($partidas[$i]["jugador"] == $nombre && $partidas[$i]["puntaje"] != 0) {
+        $encontrado  = true;
+        $indice = $i;
+      }
+     $i++;
+    }
+    
+    return $indice;
+  }
+
+
+
+
+
+
  //PUNTO 9 ESTADISCTICA JUGADOR
 
  /**
@@ -476,17 +507,14 @@ function solicitarJugador(){
 
 //Declaración de variables:
 
+//INT $opcion
+//ARRAY $palabras, $partidas, $nuevaPartida
+//STRING $palabraNueva
 
 //Inicialización de variables:
-
-
-//Proceso:
-
-$partida = jugarWordix("MELON", strtolower("MaJo"));
-//print_r($partida);
-//imprimirResultado($partida);
-
-
+$palabras = cargarColeccionPalabras();
+$partidas = cargarPartidas(100, $palabras);
+  
 
 
 do {
@@ -494,30 +522,58 @@ do {
     $opcion = seleccionarOpcion();
     switch ($opcion) {
         case 1: 
-        
-
+        escribirBlanco("Opcion 1 seleccionada");
+        echo " \n\n";
+        $nuevaPartida = opcionMenu1y2($palabras, $partidas, $opcion);
+        array_push($partidas, $nuevaPartida);
+        presionarEnterContinuar();
             break;
+
         case 2: 
-            
-
+            escribirBlanco("Opcion 2 seleccionada");
+            echo " \n\n";
+            $nuevaPartida = opcionMenu1y2($palabras, $partidas, $opcion);
+            presionarEnterContinuar();
             break;
+
         case 3: 
-            
-
+            escribirBlanco("Opcion 3 seleccionada");
+            echo " \n\n";
+            menuOpcion3($partidas);
+            presionarEnterContinuar();
             break;
+
         case 4:
-
+            escribirBlanco("Opcion 4 seleccionada");
+            echo " \n\n";
+            menuOpcion4($partidas);
+            presionarEnterContinuar();
             break;
+
         case 5:
-
+            escribirBlanco("Opcion 5 seleccionada");
+            echo " \n\n";
+            menuOpcion5($partidas);
+            presionarEnterContinuar();
             break;
+
         case 6:
-
+            escribirBlanco("Opcion 6 seleccionada");
+            echo " \n\n";
+            ordenarPartidas($partidas);
+            presionarEnterContinuar();
             break;
+
         case 7:
-
+            escribirBlanco("Opcion 7 seleccionada");   
+            echo " \n\n";
+            $palabraNueva = leerPalabra5Letras();
+            $palabras = agregarPalabra($palabras, $palabraNueva);
+            presionarEnterContinuar();
             break;
-        
+        default:
+            escribirRojo("Fin del programa");
+            break;
             
     }
 } while ($opcion != 8);
