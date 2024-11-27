@@ -329,7 +329,7 @@ function cargarColeccionPalabras()
  function seleccionarOpcion(){
     //int $opcion
     echo "╔" . str_repeat("═", 69 - 2) . "╗\n";
-  escribirGris("Menú de opciones");
+  escribirAzul("Menú de opciones");
   echo "                                                  ║\n";
   echo "║";
   echo "1- Jugar al Wordix con una palabra elegida                         ║\n";
