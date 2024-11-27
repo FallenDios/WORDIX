@@ -149,13 +149,14 @@ function agregarPalabra($coleccionPalabras, $palabra) {
  * @return INT
 */
 function primerPartidaGanada($partidas, $nombre){
-  //INT $i, $indice
+  //INT $i, $indice, $limite
   //BOOLEAN $encontrado
   $i = 0;
   $encontrado = false;
   $indice = -1;
+  $limite = count($partidas);
   
-  while (!$encontrado && $i < count($partidas)) {
+  while (!$encontrado && $i < $limite) {
     if ($partidas[$i]["jugador"] == $nombre && $partidas[$i]["puntaje"] != 0) {
       $encontrado  = true;
       $indice = $i;
