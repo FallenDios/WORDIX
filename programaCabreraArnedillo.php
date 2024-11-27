@@ -340,6 +340,67 @@ function cargarColeccionPalabras()
     $opcion = solicitarNumeroEntre(1,8); //Invoco a esta función para que el usuario ingrese una opción valida entre 1 y 8.
     return $opcion;
  }
+ //PUNTO 9 ESTADISCTICA JUGADOR
+
+ /**
+  * Funcion que dada la coleccion de partidas y el nombre de un jugador.
+  * Retorna el resumen del mismo
+  * @param ARRAY $partidas
+  * @param STRING $nombreJugador
+  * @return ARRAY
+  */
+
+  function estadisticasJugador($partidas, $nombreJugador){
+    //INT $partidasJugadas, $puntajeAcumulado, $victorias, $i, $intento
+    //ARRAY $resumenJugador
+    $intento = 0;
+    
+    $resumenJugador = [
+      "jugador" => $nombreJugador,
+      "partidas" => 0,
+      "puntaje" => 0,
+      "victorias" => 0,
+      "intento1" => 0,
+      "intento2" => 0,
+      "intento3" => 0,
+      "intento4" => 0,
+      "intento5" => 0,
+      "intento6" => 0,
+    ];
+  
+    for ($i=0; $i < count($partidas); $i++) { 
+      if (($partidas[$i]["jugador"]) == $nombreJugador) {
+        $resumenJugador["partidas"]++;
+        $resumenJugador["puntaje"]+=($partidas[$i]["puntaje"]);
+
+        if ($partidas[$i]["puntaje"] > 0) {
+          $resumenJugador["victorias"]++;
+          $intento = $partidas[$i]["intentos"];
+          switch ($intento) {
+            case 1:
+              $resumenJugador["intento1"]++;
+              break;
+            case 2:
+              $resumenJugador["intento2"]++;
+              break;
+            case 3:
+              $resumenJugador["intento3"]++;
+              break;
+            case 4:
+              $resumenJugador["intento4"]++;
+              break;
+            case 5:
+              $resumenJugador["intento5"]++;
+              break;
+            default:
+              $resumenJugador["intento6"]++;
+              break;
+          }
+        }
+      }
+    }
+    return $resumenJugador;
+  }
 
 //PUNTO 10 SOLICITAR JUGADOR
 
@@ -398,7 +459,7 @@ function cargarColeccionPalabras()
 
 
 
- 
+
 /**************************************/
 /*********** PROGRAMA PRINCIPAL *******/
 /**************************************/
