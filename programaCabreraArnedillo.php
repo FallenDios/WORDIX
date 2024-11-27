@@ -385,7 +385,20 @@ function cargarColeccionPalabras()
     return $resultado;
     }
 
+// ORDENAR PARTIDAS
+/**
+ * Funcion que dada una coleccion de partidas muestra la coleccion ordenada por el nombre de jugador y por palabra.
+ * @param ARRAY $coleccionPartidas
+ */
 
+ function ordenarPartidas($coleccionPartidas){
+    uasort($coleccionPartidas, 'compararJugadorPalabra'); // ordena arreglos asociativo utilizando una función de comparación definida por el usuario. 
+    print_r($coleccionPartidas); //Se utiliza para mostrar informacion sobre variables de una manera legible.
+ }
+
+
+
+ 
 /**************************************/
 /*********** PROGRAMA PRINCIPAL *******/
 /**************************************/
