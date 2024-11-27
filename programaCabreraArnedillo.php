@@ -9,8 +9,9 @@ include_once("wordix.php");
 
 /* Apellido, Nombre. Legajo. Carrera. mail. Usuario Github */
 
+// IVAN ARNEDILLO FAI- 1153- TUDW-                           -ivanarnedillo
 
-
+// FRANCO CABRERA FAI-2682 - TUDW - francocabrera585@gmai.com- FallenDios
 
 
 /**************************************/
