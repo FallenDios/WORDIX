@@ -51,6 +51,7 @@ function solicitarNumeroEntre($min, $max)
     return $numero;
 }
 
+//--------------COLORES---------------
 /**
  * Escrbir un texto en color ROJO
  * @param string $texto)
@@ -139,6 +140,7 @@ function escribirSegunEstado($texto, $estado)
 
 /** Esta función recibe como parámetro un nombre de jugador y muestra
  * por pantalla un saludo.
+ * @param STRING $usuario
  */
 function escribirMensajeBienvenida($usuario)
 {
@@ -152,6 +154,7 @@ function escribirMensajeBienvenida($usuario)
 
 /** Esta función recibe como parámetro una cadena de caracteres y retorna
  * verdadero si esa compuesta toda por letras y falso si no.
+ * @param STRING $cadena
  *@return boolean
  */
 function esPalabra($cadena)
@@ -189,7 +192,7 @@ function leerPalabra5Letras()
 
 
 /**
- * Inicia una estructura de datos Teclado. La estructura es de tipo: ¿Indexado, asociativo o Multidimensional?
+ * Inicia una estructura de datos Teclado. La estructura es de tipo: asociativo,
  *@return array
  */
 function iniciarTeclado()
