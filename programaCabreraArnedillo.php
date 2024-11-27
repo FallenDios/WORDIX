@@ -226,7 +226,7 @@ function cargarColeccionPalabras()
 
     return ($coleccionPalabras);
 }
-//PUNTO 2
+//PUNTO 2 CARGAR PARTIDAS
 
 /**
  * Funcion que inicializa una estructura de datos con ejemplos de partidas y retorna la coleccion con datos aleatorios. 
@@ -324,6 +324,7 @@ function cargarColeccionPalabras()
  * @return int
  */
 
+
  function seleccionarOpcion(){
     //int $opcion
     echo "\n Menú de opciones: \n";
@@ -363,6 +364,27 @@ function cargarColeccionPalabras()
 
     return strtolower($jugador);
  }
+// PUNTO 11 COMPARAR JUGADOR PALABRA
+/**
+ * Funcion  personalizada de ordenamiento.
+ * Compara dos valores de un arreglo asociativo, para ordenarlos.
+ * Primero ordena por nombre de jugador y luego por palabra.
+ * @param STRING $a
+ * @param STRING $b
+ * @return INT
+ */
+
+ function compararJugadorPalabra($a, $b){
+    //STRING $resultado
+    $resultado = strcmp($a["jugador"], $b["jugador"]);  //strcmp, que compara dos cadenas alfabéticamente.
+
+    if($resultado === 0){
+        $resultado = strcmp($a["palabraWordix"], $b["palabraWordix"]);
+    }
+
+    return $resultado;
+    }
+
 
 /**************************************/
 /*********** PROGRAMA PRINCIPAL *******/
