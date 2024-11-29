@@ -338,31 +338,23 @@ function cargarColeccionPalabras()
  */
 
 
- function seleccionarOpcion(){
-    //int $opcion
-    echo "╔" . str_repeat("═", 69 - 2) . "╗\n";
-  escribirAzul("Menú de opciones");
-  echo "                                                  ║\n";
-  echo "║";
-  echo "1- Jugar al Wordix con una palabra elegida                         ║\n";
-  echo "║";
-  echo "2- Jugar al Wordix con una palabra aleatoria                       ║\n";
-  echo "║";
-  echo "3- Mostrar una partida                                             ║\n";
-  echo "║";
-  echo "4- Mostrar la primer partida ganadora de un jugador                ║\n";
-  echo "║";
-  echo "5- Mostrar resumen del jugador                                     ║\n";
-  echo "║";
-  echo "6- Mostrar listado de partidas ordenadas por jugador y por palabra ║\n";
-  echo "║";
-  echo "7- Agregar una palabra de 5 letras a Wordix                        ║\n";
-  echo "║";
-  echo "8- Salir del programa                                              ║\n";
-  echo "╚" . str_repeat("═", 69 - 2) . "╝\n";
-  echo "Ingrese la opción deseada: ";
-    $opcion = solicitarNumeroEntre(1,8); //Invoco a esta función para que el usuario ingrese una opción valida entre 1 y 8.
-    return $opcion;
+ function seleccionarOpcion() {
+  //int $opcion
+  echo "╔════════════════════════════════════════════════════════════════════════════╗\n";
+  echo "║                           Menú de opciones                                 ║\n"; 
+  echo "║                                                                            ║\n";
+  echo "║ ► 1- Jugar al Wordix con una palabra elegida                               ║\n";
+  echo "║ ► 2- Jugar al Wordix con una palabra aleatoria                             ║\n";
+  echo "║ ► 3- Mostrar una partida                                                   ║\n";
+  echo "║ ► 4- Mostrar la primer partida ganadora de un jugador                      ║\n";
+  echo "║ ► 5- Mostrar resumen del jugador                                           ║\n";
+  echo "║ ► 6- Mostrar listado de partidas ordenadas por jugador y por palabra       ║\n";
+  echo "║ ► 7- Agregar una palabra de 5 letras a Wordix                              ║\n";
+  echo "║ ► 8- Salir del programa                                                    ║\n";
+  echo "╚════════════════════════════════════════════════════════════════════════════╝\n";
+  echo "► Ingrese la opción deseada: ";
+  $opcion = solicitarNumeroEntre(1, 8); // Invoco a esta función para que el usuario ingrese una opción válida entre 1 y 8.
+  return $opcion;
  }
 //PUNTO 8  PRIMER PARTIDA GANADA
 
