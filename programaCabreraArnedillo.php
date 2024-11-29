@@ -191,13 +191,14 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
     escribirGris("***********************************************");
     echo "\n";
     echo"Jugador: ". $resumenJugador["jugador"]. "\n";
-    echo"Partidas:". $resumenJugador["partidas"]. "\n";
-    echo"Puntaje total:". $resumenJugador["puntaje"]. "\n";
-    echo"Victorias:". $resumenJugador["victorias"]. "\n";
-    echo"Porcentaje de victorias:". number_format($porcentajeVictorias,2). "%  \n"; 
+    echo"Partidas: ". $resumenJugador["partidas"]. "\n";
+    echo"Puntaje total: ". $resumenJugador["puntaje"]. "\n";
+    echo"Victorias: ". $resumenJugador["victorias"]. "\n";
+    echo"Porcentaje de victorias: ". number_format($porcentajeVictorias,2). "%  \n"; 
     echo" ADIVINADAS: \n";
+
     foreach($resumenJugador as $clave => $valor){
-        if(strpos($clave,"intento")== 0){
+        if(strpos($clave,"intento")=== 0){
             echo $clave. ": ". $valor. "\n";
         }
         }
