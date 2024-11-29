@@ -11,7 +11,7 @@ include_once("wordix.php");
 
 // IVAN ARNEDILLO FAI- 1153- TUDW-                           -ivanarnedillo
 
-// FRANCO CABRERA FAI-2682 - TUDW - francocabrera585@gmai.com- FallenDios
+// FRANCO CABRERA FAI-2682 - TUDW - francocabrera585@gmail.com- FallenDios
 
 
 /**************************************/
