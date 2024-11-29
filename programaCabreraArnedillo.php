@@ -175,36 +175,47 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
     //ARRAY $resumenJugador
     //FLOAT $porcentajeVictorias
 
-    $jugador= solicitarJugador();
-    $resumenJugador= estadisticasJugador($coleccionPartidas,$jugador);
-    $porcentajeVictorias= 0;
+    $jugador = solicitarJugador();
+    $resumenJugador = estadisticasJugador($coleccionPartidas, $jugador);
+    $porcentajeVictorias = 0;
 
-    if($resumenJugador["partidas"] == 0){
-        echo"El jugador". $resumenJugador["jugador"]. " no ha registrado ninguna  partida \n";
-    }else{
-        if($resumenJugador["victorias"] != 0){
-            $porcentajeVictorias= ($resumenJugador["victorias"]*100)/ $resumenJugador["partidas"];
-        }else{
-            $porcentajeVictorias= 0;
+    if ($resumenJugador["partidas"] == 0) {
+        echo "El jugador " . $resumenJugador["jugador"] . " no ha registrado ninguna partida.\n";
+        escribirGris("***********************************************");
+        echo "\n";
+        echo "Jugador: " . $resumenJugador["jugador"] . "\n";
+        echo "Partidas: 0\n";
+        echo "Puntaje total: 0\n";
+        echo "Victorias: 0\n";
+        echo "Porcentaje de victorias: 0.00%\n";
+        escribirGris("***********************************************");
+        echo "\n";
+    } else {
+        if ($resumenJugador["victorias"] != 0) {
+            $porcentajeVictorias = ($resumenJugador["victorias"] * 100) / $resumenJugador["partidas"];
+        } else {
+            $porcentajeVictorias = 0;
         }
-    }
-    escribirGris("***********************************************");
-    echo "\n";
-    echo"Jugador: ". $resumenJugador["jugador"]. "\n";
-    echo"Partidas: ". $resumenJugador["partidas"]. "\n";
-    echo"Puntaje total: ". $resumenJugador["puntaje"]. "\n";
-    echo"Victorias: ". $resumenJugador["victorias"]. "\n";
-    echo"Porcentaje de victorias: ". number_format($porcentajeVictorias,2). "%  \n"; 
-    echo" ADIVINADAS: \n";
 
-    foreach($resumenJugador as $clave => $valor){
-        if(strpos($clave,"intento")=== 0){
-            echo $clave. ": ". $valor. "\n";
-        }
+        escribirGris("***********************************************");
+        echo "\n";
+        echo "Jugador: " . $resumenJugador["jugador"] . "\n";
+        echo "Partidas: " . $resumenJugador["partidas"] . "\n";
+        echo "Puntaje total: " . $resumenJugador["puntaje"] . "\n";
+        echo "Victorias: " . $resumenJugador["victorias"] . "\n";
+        echo "Porcentaje de victorias: " . number_format($porcentajeVictorias, 2) . "%\n";
+
+        // Solo se muestra la estadistica "ADIVINADAS" solo si hay partidas
+        echo "ADIVINADAS:\n";
+        foreach ($resumenJugador as $clave => $valor) {
+            if (strpos($clave, "intento") === 0) {
+                echo $clave . ": " . $valor . "\n";
+            }
         }
         escribirGris("***********************************************");
         echo "\n";
-  }
+    }
+}
 
 
 
