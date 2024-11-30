@@ -18,7 +18,7 @@ Abre una terminal de tu preferencia y ejecuta los siguientes comandos:
 
 ```command
 git init
-git clone
+git clone https://github.com/FallenDios/WORDIX.git
 ```
 
 ## Jugar Wordix
@@ -26,7 +26,7 @@ git clone
 Ejecuta el siguiente comando en tu terminal:
 
 ```command
-php 
+php  programaCabreraArnedillo.php
 ```
 
 ## Materia 2024
@@ -41,5 +41,6 @@ Universidad Nacional Del Comahue
 ## Integrantes del Grupo
 
 IVAN ARNEDILLO FAI-1153
+
 FRANCO CABRERA FAI-2682
 
