@@ -228,7 +228,7 @@ function cargarColeccionPalabras()
         "MUJER", "QUESO", "FUEGO", "CASAS", "RASGO",
         "GATOS", "GOTAS", "HUEVO", "TINTO", "NAVES",
         "VERDE", "MELON", "YUYOS", "PIANO", "PISOS",
-        "CANTO", "TIERRA", "LUNES", "CARNE", "BROMA",
+        "CANTO", "FLUIR", "LUNES", "CARNE", "BROMA",
         
     ];
 
