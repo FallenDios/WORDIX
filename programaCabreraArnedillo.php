@@ -19,8 +19,7 @@ include_once("wordix.php");
 /**************************************/
 
 
-/**
- * Funcion diseñada para el menu principal para que cualquier tecla que se ingrese se muestre el menu
+/** Funcion diseñada para el menu principal para que cualquier tecla que se ingrese se muestre el menu.
  */
 
  function presionarEnterContinuar(){
@@ -28,9 +27,7 @@ include_once("wordix.php");
     trim(fgets(STDIN));
  }
 
-
-/**
- * Funcion que segun la opcion que se le pasa por parametro obtiene una palabra de un arreglo indexado de palabras.
+/** Funcion que segun la opcion que se le pasa por parametro obtiene una palabra de un arreglo indexado de palabras.
  * En la primera opcion la eleccion de la palabra estara a cargo del usuario.
  * En la segunda opcion la eleccion de la palabra sera aleatoria y  estara a cargo del programa 
  * La funcion retorna la palabra para jugar la partida 
@@ -39,7 +36,6 @@ include_once("wordix.php");
  * @param INT $opcion
  * @return STRING
  */
-
 
  function obtenerPalabra($palabras,$opcion){
      //STRING $palabra
@@ -67,10 +63,11 @@ include_once("wordix.php");
 */
 function verificarPalabra($partidas, $nombreJugador, $palabra) {
     //BOOLEAN $palabraUtilizada
-    //INT $indice
+    //INT $indice, $limite
+    $limite = count($partidas);
     $palabraUtilizada = false;
     $indice = 0;
-    while (!$palabraUtilizada && $indice < count($partidas)) {
+    while (!$palabraUtilizada && $indice < $limite) {
       if (($partidas[$indice]["jugador"]) == $nombreJugador && ($partidas[$indice]["palabraWordix"]) == $palabra) {
         $palabraUtilizada = true;
       }
@@ -86,8 +83,7 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
 
 
 
-/**
- * Funcion del menu principal que corresponde a las opcones 1 y 2.
+/** Funcion del menu principal que corresponde a las opcones 1 y 2.
  * Opcion 1 el jugador juega WORDIX con una palabra elegida e ingresada por el mismo.
  * Opcion 2 el jugador juega WORDIX con una palabra elegida al azar por el programa.
  * La funcion devuelve el arreglo de la nueva partida 
@@ -123,11 +119,10 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
      return $nuevapartida;
  }
 
- /**Funcion opcion 3 del menu principal
+ /** Funcion opcion 3 del menu principal
   * Pide al usuario un numero de partida y llama a una funcion "MostrarPartida"
   * pasandole por parametro dicho numero y coleccion de partidas jugadas generadas en la sesion actual
   * Si la partida existe, muestra sus datos. Caso contrario solicita nuevamente al usuario que ingrese un numero valido.
-  *
   * @param ARRAY $coleccionPartidas
   */
 
@@ -142,7 +137,7 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
   }
 
 
-/**Funcion correspondiente a la opcion numero 4 del menu principal.
+/** Funcion correspondiente a la opcion numero 4 del menu principal.
  * Consulta en la base de datos de las partidas existentes, la primera partida ganada por un jugador.
  * En caso de existir esos datos, los muestra por pantalla de lo contrario mostrara un mensaje por pantalla.
  * @param ARRAY $coleccionPartidas
@@ -164,10 +159,10 @@ function verificarPalabra($partidas, $nombreJugador, $palabra) {
 
 
 
- /**Funcion que correspondiente a la opcion 5 del menu principal
+ /** Funcion que correspondiente a la opcion 5 del menu principal
   * Muestra las estadisticas de un jugador 
   * Partidas jugadas, ganadas y porcentaje de victorias.
-  *@param ARRAY $coleccionPartidas
+  * @param ARRAY $coleccionPartidas
   */
 
   function menuOpcion5($coleccionPartidas){
@@ -358,7 +353,9 @@ function cargarColeccionPalabras()
  }
 //PUNTO 8  PRIMER PARTIDA GANADA
 
-/** Función que dada una colección de partidas y el nombre de un jugador, retorna el índice de la primer partida ganada por dicho jugador. Si el jugador no ganó ninguna partida, la función retornará -1
+/** Función que dada una colección de partidas y el nombre de un jugador, 
+ * retorna el índice de la primer partida ganada por dicho jugador.
+ * Si el jugador no ganó ninguna partida, la función retornará -1
  * @param ARRAY $partidas
  * @param STRING $nombre
  * @return INT
@@ -388,8 +385,7 @@ function primerPartidaGanada($partidas, $nombre){
 
  //PUNTO 9 ESTADISCTICA JUGADOR
 
- /**
-  * Funcion que dada la coleccion de partidas y el nombre de un jugador.
+ /** Funcion que dada la coleccion de partidas y el nombre de un jugador.
   * Retorna el resumen del mismo
   * @param ARRAY $partidas
   * @param STRING $nombreJugador
@@ -456,7 +452,7 @@ function solicitarJugador(){
     //STRING $jugador
     do{
         echo"Ingrese el nombre del jugador :";
-        $jugador=trim(fgets(STDIN)); // Elimina los espacios en blanco al principio y al final de una cadena.
+        $jugador = trim(fgets(STDIN)); // Elimina los espacios en blanco al principio y al final de una cadena.
         $jugador = preg_replace('/\s+/', ' ', $jugador); //remplaza todos los espacios en blanco con un espacio.
 
         // Validar que el nombre no esté vacío, que comience con una letra y tenga más de un carácter útil
